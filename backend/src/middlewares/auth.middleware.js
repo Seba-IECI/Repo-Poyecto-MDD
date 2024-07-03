@@ -28,5 +28,6 @@ async function isAdmin(req, res, next) {
     return res.status(500).json({ message: 'Error interno del servidor' });
   }
 }
+// Se debe crear una funcion de validacion para cada rol, el admin ya esta creado, falta par el user y emprendedor
 
 export { isAdmin };
