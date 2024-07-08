@@ -54,15 +54,16 @@ const emprendedorSchema = new mongoose.Schema(
 emprendedorSchema.statics.encryptPassword = async (password) => {
     const salt = await bcrypt.genSalt(10);
     return await bcrypt.hash(password, salt);
-  };
-  
-  
+};
+
+
   // Comparación entre contraseña encriptada y recibida
   //Compara una contraseña proporcionada con una encriptada y almacenada
-  emprendedorSchema.statics.comparePassword = async (password, receivedPassword) => {
+emprendedorSchema.statics.comparePassword = async (password, receivedPassword) => {
     return await bcrypt.compare(password, receivedPassword);
-  };
-  
+};
+
   // Modelo de datos de usuario
-  const Emprendedor = mongoose.model("Emprendedor", emprendedorSchema, "Emprendedores");
-  export default Emprendedor; //exportamos para usar en el codigo
+const Emprendedor = mongoose.model("Emprendedor", emprendedorSchema, "Emprendedores");
+
+export default Emprendedor; //exportamos para usar en el codigo

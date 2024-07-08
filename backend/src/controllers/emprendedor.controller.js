@@ -1,8 +1,8 @@
 'use strict';
 
 import { response } from 'express';
-import Emprendedor  from '../models/emprendedor.model.js';
 import Role from '../models/role.model.js';
+import Emprendedor  from '../models/emprendedor.model.js';
 
 export async function crearEmprendedor(request, response){
     try {
@@ -24,11 +24,11 @@ export async function crearEmprendedor(request, response){
         nuevoEmprendedor.password = await Emprendedor.encryptPassword(infoEmprendedor.password); //encriptamos contraseña 
         nuevoEmprendedor.roles = [emprendedorRol._id] //le pasemos el id del rol
         await nuevoEmprendedor.save(); //se guarda en la BD 
-       
+
         response.status(201).json({
             message: "Registro con exito!",
             data: nuevoEmprendedor
-          });
+        });
 
     } catch (error) {
         console.log("Error en emprendedor.controller.js -> crearEmprendedor(): ", error);
@@ -45,7 +45,7 @@ export async function emprendedorLogin(request, response){
 
         if (emprendedorEncontrado === null) {
             return response.status(400).json({
-                message: "Correo Electrónico no registrado"
+                message: "Correo Electrónico es incorrecto"
             });
         }
 

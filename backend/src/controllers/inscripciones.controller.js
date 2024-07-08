@@ -3,9 +3,9 @@ import Evento from '../models/evento.model.js'
 
 export async function crearIncripcion(req, res) {
     try {
-        const { nombreEmprendimiento, numeroContacto, eventoId } = req.body;
-        const user = req.session.user;  // Asegúrate de acceder correctamente a los datos del usuario desde la sesión
-
+        const eventoId = req.body.eventoId;
+        const user = req.user;  // Asegúrate de acceder correctamente a los datos del usuario desde la sesión
+        
         // Validar si el eventoId es válido
         const evento = await Evento.findById(eventoId);
         if (!evento) {
@@ -13,7 +13,7 @@ export async function crearIncripcion(req, res) {
         }
 
         // Verificar si el emprendedor ya está inscrito en este evento
-        const existingInscription = await Form.findOne({ eventoId, nombreEmprendedor: user.username });
+        const existingInscription = await Form.findOne({ eventoId, nombreEmprendedor: user.nombreEmprendedor});
         if (existingInscription) {
             return res.status(400).json({ message: "Ya estás inscrito en este evento." });
         }
@@ -21,10 +21,10 @@ export async function crearIncripcion(req, res) {
         // Crear nueva inscripción con los datos del evento
         const newForm = new Form({
             nombreEvento: evento.nombreEvento,
-            nombreEmprendimiento,
-            nombreEmprendedor: user.username,
-            email: user.email,
-            numeroContacto,
+            nombreEmprendimiento: user.nombreEmprendimiento,
+            nombreEmprendedor: user.nombreEmprendedor,
+            email: user.correo,
+            numeroContacto: user.numeroContacto,
             eventoId
         });
 
@@ -71,38 +71,53 @@ export async function obtenerAsistentes(req, res) {
     }
 }
 
-export async function obtenerInscripcion(req, res){
+export async function visualizarInscripciones(req, res) {
     try {
-        const id = req.params.id;
+        const user = req.session.emprendedor;  // Asegúrate de acceder correctamente a los datos del usuario desde la sesión
 
-        const form = await Form.findById(id);
+        if (!user) {
+            return res.status(401).json({ message: "No estás autenticado" });
+        }
 
-        if(!form) {
-            return res.status(404).json({
-                message: "Inscripcion no valida / no encontrada",
-                data: null
-            });
+        // Busca todas las inscripciones del emprendedor logueado
+        const forms = await Form.find({ nombreEmprendedor: user.nombreEmprendedor });
+
+        if(forms.length === 0){
+            return res.status(404).json({ message: "No tienes inscripciones a eventos. Inscribete ahora!!"});
         }
 
         res.status(200).json({
-            message: "Inscripcion encontrada exitosamente",
-            data: form
-        })
+            message: "Inscripciones encontradas exitosamente",
+            data: forms
+        });
     } catch (error) {
-        res.status(500).json({message: error.message});
+        console.error("Error al obtener inscripciones:", error);
+        res.status(500).json({ message: error.message });
     }
-    
 }
 
 export async function eliminarInscripcion(req, res){
     try {
         const id = req.params.id;
+        const user = req.session.emprendedor;  // Asegúrate de acceder correctamente a los datos del usuario desde la sesión
+
+        if (!user) {
+            return res.status(401).json({ message: "No estás autenticado" });
+        }
 
         // Primero, encuentra la inscripción para obtener el eventoId
         const form = await Form.findById(id);
         if (!form) {
             return res.status(404).json({
                 message: "Inscripción no válida / no encontrada",
+                data: null
+            });
+        }
+
+        // Verifica si la inscripción pertenece al emprendedor logueado
+        if (form.nombreEmprendedor !== user.nombreEmprendedor) {
+            return res.status(403).json({
+                message: "No tienes permisos para eliminar esta inscripción",
                 data: null
             });
         }
@@ -131,4 +146,3 @@ export async function eliminarInscripcion(req, res){
     }
 
 }
-

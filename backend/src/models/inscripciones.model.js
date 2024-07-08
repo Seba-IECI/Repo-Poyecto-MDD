@@ -23,7 +23,7 @@ const formSchema = new mongoose.Schema({
         required: true,
     },
     numeroContacto: {
-        type: String,
+        type: Number,
         required: true,
     }
 },
