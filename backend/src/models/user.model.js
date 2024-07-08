@@ -50,6 +50,6 @@ userSchema.statics.comparePassword = async (password, receivedPassword) => {
 };
 
 // Modelo de datos de usuario
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema, "Usuarios");
 
 export default User;

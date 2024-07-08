@@ -18,7 +18,6 @@ export async function login(req, res) {
             });
         }
 
-
         const matchPassword = await User.comparePassword(
             user.password,
             userFound.password

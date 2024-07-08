@@ -53,6 +53,7 @@ export async function createUsers() {
         password: await User.encryptPassword("user123"),
         roles: user._id,
       }).save(),
+
       new User({
         username: "Nombre Emprendedor",
         email: "emprendedor@gmail.com",
@@ -60,6 +61,7 @@ export async function createUsers() {
         password: await User.encryptPassword("emprendedor123"),
         roles: emprendedor._id,
       }).save(),
+      
       new User({
         username: "Nombre Administrador",
         email: "admin@gmail.com",
