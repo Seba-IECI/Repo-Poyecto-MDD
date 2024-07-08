@@ -14,6 +14,9 @@ import inscripcionesRoutes from "./inscripciones.routes.js";
 /** Enrutador de creacion de eventos */
 import eventoRoutes from "./evento.routes.js"
 
+/** Enrutador de emprendedores */
+import emprendedorRoutes from "./emprendedor.routes.js"
+
 // Se realiza una instancia de express
 const router = Router();
 
@@ -25,5 +28,7 @@ router.use("/auth", authRoutes);
 router.use("/evento",eventoRoutes);
 // Define las rutas para las incripcion a un evento
 router.use('/inscripciones', inscripcionesRoutes);
+// Define las rutas de emprendedor
+router.use('/emprendedor', emprendedorRoutes);
 
 export default router;

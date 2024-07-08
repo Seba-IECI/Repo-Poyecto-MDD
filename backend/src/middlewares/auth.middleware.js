@@ -58,12 +58,12 @@ async function isUser(req, res, next) {
 async function isEmprendedor(req, res, next) {
   try {
     // Verifica si hay un usuario autenticado en la sesión
-    if (!req.session.user) {
+    if (!req.session.emprendedor) {
       return res.status(401).json({ message: 'No estás autenticado' });
     }
     
     // Obtiene el rol del usuario de la sesión
-    const userRole = req.session.user.rolName;
+    const userRole = req.session.emprendedor.rolName;
 
     // Verifica si el usuario tiene el rol de emprendedor
     if (userRole === 'emprendedor') {
