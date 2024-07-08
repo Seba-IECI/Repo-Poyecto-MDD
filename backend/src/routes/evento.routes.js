@@ -2,11 +2,13 @@
 // Importa el modulo 'express' para crear las rutas
 import { Router } from "express";
 // Importar funciones de controlador de eventos
-import{ crearEvento, obtenerEventos, actualizarEvento, eliminarEvento} from "../controllers/evento.controller.js"
+import{ crearEvento, obtenerEventos, actualizarEvento, eliminarEvento, buscarEvento} from "../controllers/evento.controller.js"
 // Importar middleware de autenticación de administrador
 import { isAdmin } from "../middlewares/auth.middleware.js"
 
 const router = Router();
+
+router.get("/buscar/:nombreEvento", buscarEvento);
 
 // Proteger todas las rutas con middleware de autenticación de administrador
 router.use(isAdmin);

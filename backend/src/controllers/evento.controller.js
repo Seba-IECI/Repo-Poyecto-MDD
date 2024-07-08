@@ -101,3 +101,33 @@ export async function eliminarEvento(req, res){
     });
 }
 
+export async function buscarEvento(req, res) {
+    try {
+        const nombreEvento = req.params.nombreEvento;
+
+        if (!nombreEvento) {
+            return res.status(400).json({
+                message: "Debe ingresar el nombre del evento.",
+                data: null
+            });
+        }
+
+        // Buscar eventos que contengan el nombre especificado usando una coincidencia parcial
+        const eventos = await Evento.find({ nombreEvento: { $regex: nombreEvento, $options: 'i' } }); 
+        // $regex: Permite realizar busquedas parciales de una palabra // $options: Permite que no haya distincion entre mayusculas y minusculas
+        if (eventos.length === 0) {
+            return res.status(404).json({
+                message: "No se han encontrado resultados de su búsqueda.",
+                data: null
+            });
+        }
+
+        res.status(200).json({
+            message: "Eventos encontrados:",
+            data: eventos
+        });
+    } catch (error) {
+        console.log("Error en evento.controller.js -> buscarEvento(): ", error);
+        res.status(500).json({ message: error.message });
+    }
+}
