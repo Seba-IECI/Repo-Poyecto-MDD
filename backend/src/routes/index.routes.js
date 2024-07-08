@@ -17,7 +17,7 @@ import eventoRoutes from "./evento.routes.js"
 // Se realiza una instancia de express
 const router = Router();
 
-// Define las rutas para los usuarios /api/users
+// Define las rutas para los usuarios /api/user
 router.use("/user",  userRoutes);
 // Define las rutas para la autenticación /api/auth
 router.use("/auth", authRoutes);

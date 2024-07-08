@@ -67,6 +67,8 @@ async function isEmprendedor(req, res, next) {
 
     // Verifica si el usuario tiene el rol de emprendedor
     if (userRole === 'emprendedor') {
+      // Configura req.user con la informacion del usuario
+      req.user = req.session.user;
       // El usuario tiene el rol adecuado, continua con la siguiente función de middleware
       next();
       return;
