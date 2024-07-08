@@ -35,7 +35,11 @@ const eventoSchema = new mongoose.Schema({
     ubicacion: {
         type: String,
         required: true
-    }
+    },
+    asistentes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Form' // Referencia al modelo de Inscripción
+    }]
 }
 );
 

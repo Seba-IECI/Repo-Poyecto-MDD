@@ -1,6 +1,15 @@
 import mongoose from "mongoose";
 
 const formSchema = new mongoose.Schema({
+    nombreEvento: {
+        type: String,
+        required: true
+    },
+    eventoId: {
+        type: mongoose.Schema.Types.ObjectId, // Tipo ObjectId para referenciar el evento
+        ref: 'Evento',
+        required: true
+    },
     nombreEmprendimiento: {
         type: String,
         required: true
@@ -8,26 +17,22 @@ const formSchema = new mongoose.Schema({
     nombreEmprendedor: {
         type: String,
         required: true,
-        unique: true
     },
     email: {
         type: String,
         required: true,
-        unique: true
     },
     numeroContacto: {
         type: String,
         required: true,
-        unique: true
     }
 },
 {
     versionKey: false,
-    timestamps: {
-        createdAt: "created_at",
-        updatedAt: "updated_at"
-    },
 })
+
+// Añadir un índice compuesto para nombreEmprendedor y eventoId
+formSchema.index({ nombreEmprendedor: 1, eventoId: 1 }, { unique: true });
 
 export default mongoose.model('Form', formSchema, 'Inscripciones');
 
