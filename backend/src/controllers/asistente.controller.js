@@ -12,6 +12,14 @@ export async function registrarAsistencia(req, res) {
             return res.status(404).json({ message: 'Evento no encontrado' });
         }
 
+        // Obtener la fecha actual
+        const fechaActual = new Date();
+
+        // Verificar si la fecha actual está dentro del rango de fecha limite del evento
+        if (fechaActual > evento.fechaLimiteInscripcion) {
+            return res.status(400).json({ message: 'No se puede registrar fuera del rango de fechas del evento.' });
+        }
+
         // Crear un nuevo asistente
         const nuevoAsistente = new Asistente({
             eventoID,
