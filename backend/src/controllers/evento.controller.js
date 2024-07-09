@@ -152,7 +152,8 @@ export async function confirmarAsistencia(req, res) {
         const eventoID = datos.eventoID
         console.log(eventoID);
         await Evento.findByIdAndUpdate(eventoID, 
-            {$set: { 'inscripcionEmprendedor.0.confirmado': true }},
+            {$set: { 'inscripcionEmprendedor.$[elem].confirmado': true }},
+            {arrayFilters: [{ 'elem.emprendedor': emprendedorInscripcion._id }]}
         );
         
 
