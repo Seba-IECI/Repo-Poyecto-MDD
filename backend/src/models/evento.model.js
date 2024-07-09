@@ -36,6 +36,10 @@ const eventoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    asistentes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Asistente'
+    }],
     inscripcionEmprendedor: [{
     emprendedor: {
         type: mongoose.Schema.Types.ObjectId,
@@ -45,7 +49,7 @@ const eventoSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-
+    
     }]
 });
 

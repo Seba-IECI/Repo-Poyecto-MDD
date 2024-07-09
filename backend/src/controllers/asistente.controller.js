@@ -1,13 +1,14 @@
 import Asistente from '../models/asistente.model.js';
+import Evento from '../models/evento.model.js';
 
-export async function registrarAsistencia(request, response) {
+export async function registrarAsistencia(req, res) {
     try {
         const { eventoID, email, numeroContacto } = req.body;
 
         // Verificar que el evento exista
         const evento = await Evento.findById(eventoID);
         if (!evento) {
-            return response.status(404).json({ message: 'Evento no encontrado' });
+            return res.status(404).json({ message: 'Evento no encontrado' });
         }
 
         // Crear un nuevo asistente
@@ -24,12 +25,12 @@ export async function registrarAsistencia(request, response) {
         evento.asistentes.push(nuevoAsistente._id);
         await evento.save();
 
-        response.status(201).json({
+        res.status(201).json({
             message: 'Asistente registrado correctamente',
             data: nuevoAsistente
         });
     } catch (error) {
-        console.log('Error en asistente.controller.js -> asistir(): ', error);
-        response.status(500).json({ message: 'Error interno del servidor' });
+        console.log('Error en asistente.controller.js -> registrarAsistencia(): ', error);
+        res.status(500).json({ message: 'Error interno del servidor' });
     }
 }
