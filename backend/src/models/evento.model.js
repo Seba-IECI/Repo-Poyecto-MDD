@@ -36,11 +36,14 @@ const eventoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    asistentes: [{
+    emprendedoresInscritos: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Form' // Referencia al modelo de Inscripción
+    }],
+    asistentes: [{
+
     }]
-}
+}, { versionKey: false }
 );
 
 // Se crea un modelo llamado 'Evento' baso en el esquema que creamos 'eventoSchema'. 
