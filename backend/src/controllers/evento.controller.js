@@ -156,7 +156,6 @@ export async function confirmarAsistencia(req, res) {
             {arrayFilters: [{ 'elem.emprendedor': emprendedorInscripcion._id }]}
         );
         
-
         if (!emprendedorInscripcion) {
             return res.status(404).json({ message: "No se encontró el emprendedor especificado" });
         }

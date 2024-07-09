@@ -6,21 +6,32 @@ import Product from '../models/productos.model.js';
 async function crearProducto(req, res) {
   try {
     const datosProducto = req.body; // Se crea una constante con los datos del producto (nombre, descripcion, precio, stock).
-    const NuevoProducto = await Product.create(datosProducto);
-    
+    const eventoId = datosProducto.eventoId;
+
+    const nuevoProducto = new Product({
+      eventoId,
+      nombre: datosProducto.nombre,
+      descripcion: datosProducto.descripcion,
+      precio: datosProducto.precio,
+      stock: datosProducto.stock
+    })
+
+    await nuevoProducto.save();
+
     await Evento.findByIdAndUpdate(datosProducto.eventoId, {
-        $push:{ inscripcionEmprendedor: { productos: NuevoProducto._id }}
-    });
+      $push:{ inscripcionEmprendedor: { productos: newForm._id }}
+  });
+
     res.status(201).json({ message: 'Producto creado exitosamente' });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: 'Error al crear el producto' });
+
     if (error.code === 11000) {
         res.status(400).json({
-            message: "Ya estás inscrito en este evento."
+            message: "Ya registraste este producto."
         });
     } else {
-        res.status(500).json({ message: error.message });
+      res.status(500).json({ message: 'Error al crear el producto' });
     }
   }
 }
@@ -106,6 +117,36 @@ async function eliminarProductoPorID(req, res) {
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Error al eliminar producto' });
+  }
+}
+
+export async function buscarProductos(req, res) {
+  try {
+      const { eventoId, nombreProducto } = req.query;
+      console.log('eventoId:', eventoId);
+      console.log('nombreProducto:', nombreProducto);
+
+
+      // Validar si el eventoId es válido
+      const evento = await Evento.findById(eventoId);
+      if (!evento) {
+          return res.status(404).json({ msg: 'Evento no encontrado' });
+      }
+
+      // Buscar productos por nombre y eventoId
+      const productos = await Product.find({eventoId: eventoId, nombre: { $regex: nombreProducto, $options: 'i' }}); // Busca productos cuyo nombre contenga la cadena buscada (insensible a mayúsculas)
+
+      if (productos.length === 0) {
+          return res.status(404).json({ msg: 'No se encontraron productos' });
+      }
+
+      res.status(200).json({
+          message: 'Productos encontrados',
+          data: productos
+      });
+  } catch (error) {
+      console.error("Error al buscar productos:", error);
+      res.status(500).json({ message: error.message });
   }
 }
 

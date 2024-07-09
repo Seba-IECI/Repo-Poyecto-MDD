@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { crearIncripcion, obtenerAsistentes, visualizarInscripciones, eliminarInscripcion } from "../controllers/inscripciones.controller.js";
-import { isEmprendedor } from "../middlewares/auth.middleware.js";
+import { isEmprendedor, isAdmin } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
@@ -8,7 +8,7 @@ const router = Router();
 router.post('/inscribir', isEmprendedor, crearIncripcion);
 
 // Ruta para obtener todos los asistentes de un evento
-router.get('/asistentes/:eventoId', isEmprendedor, obtenerAsistentes);
+router.get('/asistentes/:eventoId', isAdmin, obtenerAsistentes);
 
 //Ruta para visualizar a los eventos que esta inscrito el emprendedor
 router.get('/visualizar', isEmprendedor, visualizarInscripciones);

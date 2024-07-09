@@ -27,7 +27,6 @@ export async function crearIncripcion(req, res) {
             numeroContacto: user.numeroContacto,
             eventoId
         });
-
         await newForm.save();
 
         // Añadir la inscripción a la lista de asistentes del evento
