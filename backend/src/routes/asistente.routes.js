@@ -1,9 +1,10 @@
+// routes/asistente.routes.js
 import { Router } from 'express';
-import { registrarAsistencia } from '../controllers/asistente.controller.js';
+import { registrarAsistencia, eliminarAsistencia } from '../controllers/asistente.controller.js';
 
 const router = Router();
 
-// Ruta para registrar asistentes
 router.post('/registrarAsistencia', registrarAsistencia);
+router.delete('/eliminarAsistencia', eliminarAsistencia);
 
 export default router;
