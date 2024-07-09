@@ -133,7 +133,8 @@ export async function eliminarInscripcion(req, res){
 
         // Actualiza el evento eliminando la inscripción de la lista de asistentes
         await Evento.findByIdAndUpdate(form.eventoId, {
-            $pull: { asistentes: id }
+            $pull: { inscripcionEmprendedor: { emprendedor: id }}
+           // $pull: { asistentes: id }
         });
 
         res.status(200).json({
