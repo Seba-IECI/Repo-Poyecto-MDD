@@ -88,7 +88,7 @@ export async function eliminarEvento(req, res){
         }
 
         // Elimina el evento
-        await Evento.findByIdAndRemove(eventoID);
+        await Evento.findByIdAndDelete(eventoID);
 
         res.status(200).json({
             message: "Evento eliminado correctamente",
