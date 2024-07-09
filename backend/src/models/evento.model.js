@@ -41,7 +41,8 @@ const eventoSchema = new mongoose.Schema({
         ref: 'Form' // Referencia al modelo de Inscripción
     }],
     asistentes: [{
-
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Asistente'
     }]
 }, { versionKey: false }
 );
