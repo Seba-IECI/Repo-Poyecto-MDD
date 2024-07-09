@@ -32,7 +32,7 @@ export async function crearIncripcion(req, res) {
 
         // Añadir la inscripción a la lista de asistentes del evento
         await Evento.findByIdAndUpdate(eventoId, {
-            $push: { asistentes: newForm._id }
+            $push: { inscripcionEmprendedor: { emprendedor: newForm._id }}
         });
 
         res.status(201).json({
@@ -56,14 +56,14 @@ export async function obtenerAsistentes(req, res) {
         const eventoId  = req.params.eventoId;
 
         // Encuentra el evento y rellena el campo asistentes
-        const evento = await Evento.findById(eventoId).populate('asistentes');
+        const evento = await Evento.findById(eventoId).populate('inscripcionEmprendedor.emprendedor');
         if (!evento) {
             return res.status(404).json({ message: "Evento no encontrado" });
         }
 
         res.status(200).json({
             message: "Asistentes obtenidos correctamente",
-            data: evento.asistentes
+            data: evento.inscripcionEmprendedor
         });
     } catch (error) {
         console.error("Error al obtener asistentes:", error);
@@ -144,5 +144,4 @@ export async function eliminarInscripcion(req, res){
     } catch (error) {
         res.status(500).json({message: error.message});
     }
-
 }

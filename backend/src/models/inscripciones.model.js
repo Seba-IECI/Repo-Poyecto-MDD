@@ -25,14 +25,14 @@ const formSchema = new mongoose.Schema({
     numeroContacto: {
         type: Number,
         required: true,
-    }
+    },
 },
 {
     versionKey: false,
 })
 
 // Añadir un índice compuesto para nombreEmprendedor y eventoId
-formSchema.index({ nombreEmprendedor: 1, eventoId: 1 }, { unique: true });
+formSchema.index({ nombreEmprendedor: 1, concurrio: 1, eventoId: 1 }, { unique: true });
 
 export default mongoose.model('Form', formSchema, 'Inscripciones');
 

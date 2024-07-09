@@ -4,7 +4,7 @@ import Role from "../models/role.model.js";
 // Importa el modelo de datos 'User'
 import User from "../models/user.model.js";
 
-export async function login(req, res) {
+export async function login(req, res){
     try {
         const user = req.body;
 

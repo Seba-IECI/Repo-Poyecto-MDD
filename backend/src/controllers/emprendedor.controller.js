@@ -32,7 +32,7 @@ export async function crearEmprendedor(request, response){
 
     } catch (error) {
         console.log("Error en emprendedor.controller.js -> crearEmprendedor(): ", error);
-        response.status(500).json({ message: "Error interno del servidor" });
+        response.status(500).json({ message: "Error del servidor" });
     }
 }
 
@@ -76,9 +76,10 @@ export async function emprendedorLogin(request, response){
 
     } catch (error) {
         console.log("Error en emprendedor.controller.js -> emprendedorLogin(): ", error);
-        response.status(500).json({ message: "Error interno del servidor" });
+        response.status(500).json({ message: "Error del servidor" });
     }
 }
+
 
 export async function perfil(request, response) { //ver sesion iniciada
     try{
@@ -93,7 +94,7 @@ export async function perfil(request, response) { //ver sesion iniciada
         response.status(200).json(datos);
     } catch (error) {
         console.log("Error en emprendedor.controller.js -> perfil():", error);
-        response.status(500).json({ message: "Error interno del servidor" });
+        response.status(500).json({ message: "Error del servidor" });
     }
 }
 

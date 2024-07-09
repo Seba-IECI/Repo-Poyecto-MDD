@@ -38,6 +38,7 @@ const userSchema = new mongoose.Schema(
   },
 );
 
+
 // Contraseña del usuario encriptada
 userSchema.statics.encryptPassword = async (password) => {
   const salt = await bcrypt.genSalt(10);
@@ -48,6 +49,7 @@ userSchema.statics.encryptPassword = async (password) => {
 userSchema.statics.comparePassword = async (password, receivedPassword) => {
   return await bcrypt.compare(password, receivedPassword);
 };
+
 
 // Modelo de datos de usuario
 const User = mongoose.model("User", userSchema, "Usuarios");

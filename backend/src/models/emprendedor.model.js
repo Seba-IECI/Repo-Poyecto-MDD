@@ -44,7 +44,7 @@ const emprendedorSchema = new mongoose.Schema(
         ],
     },
         {
-            versionkey: false,
+            versionKey: false,
         }
 );
 
