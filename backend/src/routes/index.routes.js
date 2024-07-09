@@ -17,6 +17,9 @@ import eventoRoutes from "./evento.routes.js"
 /** Enrutador de emprendedores */
 import emprendedorRoutes from "./emprendedor.routes.js"
 
+/*Enrutador de productos*/
+import productRoutes from "./productos.routes.js";
+
 /** Enrutador de asistentes */
 import asistenteRoutes from "./asistente.routes.js"
 
@@ -35,5 +38,7 @@ router.use('/inscripciones', inscripcionesRoutes);
 router.use('/emprendedor', emprendedorRoutes);
 // Define las rutas del usuario (asistente)
 router.use('/asistente', asistenteRoutes);
+// Define las rutas para los productos
+router.use("/producto", productRoutes);
 
 export default router;

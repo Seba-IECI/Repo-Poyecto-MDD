@@ -45,6 +45,10 @@ const eventoSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Form' // Referencia al modelo de Inscripción
     },
+    productos: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Product' // Referencia al modelo de Producto
+    },
     confirmado: {
         type: Boolean,
         default: false
