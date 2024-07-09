@@ -1,4 +1,4 @@
-# 🎉 Proyecto de Gestión de Emprendimientos y Eventos 🎉
+# 🎉Proyecto de Gestión de Emprendimientos y Eventos🎉
 ## Introducción 📚
 Este proyecto presenta la planificación y desarrollo de un software para optimizar la gestión de emprendimientos y eventos organizados por la Dirección de Desarrollo Estudiantil (DDE) de la Universidad del Bío-Bío. Este proyecto surge como respuesta a la necesidad de mejorar la eficiencia de los procesos actuales, que se ven obstaculizados por la dependencia de correos electrónicos y formularios de Google. Nuestro sistema busca ofrecer una solución que facilite la inscripción y gestión de emprendedores, la creación y administración de eventos, la difusión eficiente de actividades y, por sobre todo, un manejo organizado de la información.
 
