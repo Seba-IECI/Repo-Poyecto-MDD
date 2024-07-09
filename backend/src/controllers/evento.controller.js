@@ -3,10 +3,9 @@
 import Evento from '../models/evento.model.js';
 import Form from '../models/inscripciones.model.js';
 import Emprendedor  from '../models/emprendedor.model.js';
-import { isAdmin } from '../middlewares/auth.middleware.js'
+
 
 export async function crearEvento(req, res){
-    isAdmin(req, res, async () => {
     try {
 
         const datosEvento = req.body; // Se crea una constante con los datos del evento (nombreEvento, fecha, hora, etc).
@@ -30,11 +29,9 @@ export async function crearEvento(req, res){
         console.log("Error en evento.controller.js -> crearEvento(): ", error);
         res.status(500).json({ message: error.message });
     }
-    });
 }
 
 export async function obtenerEventos(req, res){
-    isAdmin(req, res, async () => {
     try {
         const eventos = await Evento.find(); // Busca todos los documentos en la coleccion de eventos.
         res.status(200).json({
@@ -45,10 +42,8 @@ export async function obtenerEventos(req, res){
         console.log("Error en evento.controller.js -> obtenerEventos(): ", error);
         res.status(500).json({ message: error.message });
     }
-    });
 }
 export async function actualizarEvento(req,res) {
-    isAdmin(req, res, async () => {
     try {
         const eventoID = req.params.id;
         const datosEventoNuevos = req.body;
@@ -72,11 +67,9 @@ export async function actualizarEvento(req,res) {
         console.log("Error en evento.controller.js -> actualizarEvento(): ", error);
         res.status(500).json({ message: error.message });
     }
-    });
 }
 
 export async function eliminarEvento(req, res){
-    isAdmin(req, res, async () => {
     try {
         const eventoID = req.params.id;
 
@@ -100,7 +93,6 @@ export async function eliminarEvento(req, res){
         console.log("Error en evento.controller.js -> eliminarEvento(): ", error);
         res.status(500).json({ message: error.message });
     }
-    });
 }
 
 export async function buscarEvento(req, res) {
