@@ -1,6 +1,8 @@
 'use strict';
 
 import Evento from '../models/evento.model.js';
+import Form from '../models/inscripciones.model.js';
+import Emprendedor  from '../models/emprendedor.model.js';
 import { isAdmin } from '../middlewares/auth.middleware.js'
 
 export async function crearEvento(req, res){
@@ -128,6 +130,41 @@ export async function buscarEvento(req, res) {
         });
     } catch (error) {
         console.log("Error en evento.controller.js -> buscarEvento(): ", error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
+export async function confirmarAsistencia(req, res) {
+    try {
+        const datos = req.body; // O puedes usar req.query si los datos vienen en la query string
+
+        if (!datos.eventoID || !datos.nombreEmprendedor) {
+            return res.status(400).json({ message: "Faltan datos necesarios" });
+        }
+        const evento = await Evento.findById(datos.eventoID);
+        const nombreEvento = evento.nombreEvento;
+        const nombreEmprendedor = datos.nombreEmprendedor;
+        const emprendedorInscripcion = await Form.findOne({ //obtenemos la inscripcion de un emprendedor en cierto evento
+            nombreEvento: nombreEvento,
+            nombreEmprendedor: nombreEmprendedor });
+        console.log(emprendedorInscripcion);
+        
+        const eventoID = datos.eventoID
+        console.log(eventoID);
+        await Evento.findByIdAndUpdate(eventoID, 
+            {$set: { 'inscripcionEmprendedor.0.confirmado': true }},
+        );
+        
+
+        if (!emprendedorInscripcion) {
+            return res.status(404).json({ message: "No se encontró el emprendedor especificado" });
+        }
+
+        res.status(200).json({
+            message: "Asistencia registrada",
+        });
+    } catch (error) {
+        console.error("Error al confirmar asistencia:", error);
         res.status(500).json({ message: error.message });
     }
 }
