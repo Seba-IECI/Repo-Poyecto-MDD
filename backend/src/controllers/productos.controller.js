@@ -1,15 +1,17 @@
 "use strict";
 import Evento from '../models/evento.model.js';
 import Product from '../models/productos.model.js';
+import Emprendedor from '../models/emprendedor.model.js';
 
 // Crear un nuevo producto
 async function crearProducto(req, res) {
   try {
     const datosProducto = req.body; // Se crea una constante con los datos del producto (nombre, descripcion, precio, stock).
     const eventoId = datosProducto.eventoId;
-
+    const emprendedorId = datosProducto.emprendedorId;
     const nuevoProducto = new Product({
       eventoId,
+      emprendedorId,
       nombre: datosProducto.nombre,
       descripcion: datosProducto.descripcion,
       precio: datosProducto.precio,
@@ -19,7 +21,7 @@ async function crearProducto(req, res) {
     await nuevoProducto.save();
 
     await Evento.findByIdAndUpdate(datosProducto.eventoId, {
-      $push:{ inscripcionEmprendedor: { productos: newForm._id }}
+      $push:{ inscripcionEmprendedor: { productos: nuevoProducto._id }}
   });
 
     res.status(201).json({ message: 'Producto creado exitosamente' });
@@ -120,7 +122,7 @@ async function eliminarProductoPorID(req, res) {
   }
 }
 
-export async function buscarProductos(req, res) {
+async function buscarProductos(req, res) {
   try {
       const { eventoId, nombreProducto } = req.query;
       console.log('eventoId:', eventoId);
@@ -150,4 +152,4 @@ export async function buscarProductos(req, res) {
   }
 }
 
-export {  crearProducto, obtenerProductos, obtenerProductoPorID, modificarProductoPorID, modificarAtributoProductoPorID ,eliminarProductoPorID };
+export {  crearProducto, obtenerProductos, obtenerProductoPorID, modificarProductoPorID, modificarAtributoProductoPorID ,eliminarProductoPorID, buscarProductos};

@@ -9,6 +9,11 @@ const productoSchema = new mongoose.Schema(
       ref: 'Evento',
       required: true
     },
+    emprendedorId:{
+      type: mongoose.Schema.Types.ObjectId, // Tipo ObjectId para referenciar el evento
+      ref: 'Emprendedor',
+      required: true
+    },
     nombre: { 
       type: String, 
       required: true,

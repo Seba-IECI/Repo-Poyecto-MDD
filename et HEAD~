@@ -1,0 +1,235 @@
+[33mcommit 384a87aa19d4aed30b306fe4cff8673cc7751fbb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Sebastian Albornoz <sebastian.albornoz2201@alumnos.ubiobio.cl>
+Date:   Tue Jul 16 01:23:58 2024 -0400
+
+    ID del emprendedor agregado en los productos.controller y model
+
+[33mcommit 8d37b8644a4c64fa59a41d2e24444efefda281bf[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: EstebanBra <Esteban.bravo2101@alumnos.ubiobio.cl>
+Date:   Tue Jul 9 08:53:22 2024 -0400
+
+    Ultima correccion
+
+[33mcommit cf6135b8e770b0b13a9fc1fa8199c737cdbc11aa[m
+Author: Cristóbal Alarcón <116473297+CrisNK@users.noreply.github.com>
+Date:   Tue Jul 9 06:24:44 2024 -0400
+
+    update README.md
+
+[33mcommit 217caaddf54e7dc18b2109405df4fc29a8efe003[m
+Merge: 2555aa3 4b46b55
+Author: Bastian Arriagada Quero <bastian.arriagada2201@alumnos.ubiobio.cl>
+Date:   Tue Jul 9 06:23:15 2024 -0400
+
+    Merge branch 'main' of https://github.com/Seba-IECI/Repo-Poyecto-MDD
+
+[33mcommit 2555aa37fac4f33b154d768b449519188b373631[m
+Author: Bastian Arriagada Quero <bastian.arriagada2201@alumnos.ubiobio.cl>
+Date:   Tue Jul 9 06:22:36 2024 -0400
+
+    Iteracion 1
+
+[33mcommit 4b46b550ec59b989e587ce0d026a5ad309a46fb2[m
+Author: Cristóbal Alarcón <116473297+CrisNK@users.noreply.github.com>
+Date:   Tue Jul 9 06:20:14 2024 -0400
+
+    update README.md
+
+[33mcommit cc1832c8b723c8f643e09c5ad729a350cd358e61[m
+Author: Cristóbal Alarcón <116473297+CrisNK@users.noreply.github.com>
+Date:   Tue Jul 9 06:19:44 2024 -0400
+
+    update README.md
+
+[33mcommit 7d3f43da44d43391d5e7f71037d1a7329c3fa0e2[m
+Merge: 4f73f01 9f15c97
+Author: Diegariio <diegovargasag@gmail.com>
+Date:   Tue Jul 9 06:18:18 2024 -0400
+
+    Merge branch 'main' of https://github.com/Seba-IECI/Repo-Poyecto-MDD
+
+[33mcommit 4f73f0143adc529f586d94553ae698197f983e14[m
+Author: Diegariio <diegovargasag@gmail.com>
+Date:   Tue Jul 9 06:17:57 2024 -0400
+
+    confirma asistencia por idEvento y nombreEvento
+
+[33mcommit 9f15c979de40118daf8bc644d0979a84990706a9[m
+Author: Cristóbal Alarcón <116473297+CrisNK@users.noreply.github.com>
+Date:   Tue Jul 9 06:09:39 2024 -0400
+
+    update README.md
+
+[33mcommit f860a4b046001e75cd34705b161c7cf1724b7615[m
+Merge: b430f0b 33fdb66
+Author: Diegariio <diegovargasag@gmail.com>
+Date:   Tue Jul 9 06:02:10 2024 -0400
+
+    Merge branch 'main' of https://github.com/Seba-IECI/Repo-Poyecto-MDD
+
+[33mcommit b430f0bf9335651622275474085911d913fc73e8[m
+Author: Diegariio <diegovargasag@gmail.com>
+Date:   Tue Jul 9 06:01:55 2024 -0400
+
+    confirmaAsistencia
+
+[33mcommit 33fdb66b7dfe9f96dfb4c26613d446cd99a70646[m
+Author: Cristobal <cristobalalarcon22@gmail.com>
+Date:   Tue Jul 9 03:57:54 2024 -0400
+
+    Implementación de restricción de fechas al registrarse como asistente a un evento
+
+[33mcommit 3d9aa72df2f43bbe05bb553b9bc4441e238d133c[m
+Author: Sebastian Albornoz <sebastian.albornoz2201@alumnos.ubiobio.cl>
+Date:   Tue Jul 9 03:00:14 2024 -0400
+
+    CRUD productos
+
+[33mcommit 96e355406424f8ea26faf7f3e9bcb8d7d1298874[m
+Author: Cristobal <cristobalalarcon22@gmail.com>
+Date:   Tue Jul 9 02:45:38 2024 -0400
+
+    Eliminación de asistentes a un evento
+
+[33mcommit 43fe424325c44a63fbe73c43ed6e509c8167320a[m
+Author: Esteban Bravo <120672895+EstebanBra@users.noreply.github.com>
+Date:   Tue Jul 9 02:04:34 2024 -0400
+
+    Update Integrantes
+
+[33mcommit c33f23eec69112217cab5afed641d9043baeadca[m
+Author: Cristobal <cristobalalarcon22@gmail.com>
+Date:   Tue Jul 9 01:33:06 2024 -0400
+
+    Corrección de errores del registro de asistencia de usuarios
+
+[33mcommit eb73a26974728823471c4c08fd7bafa9f82ce646[m
+Author: Diegariio <diegovargasag@gmail.com>
+Date:   Tue Jul 9 01:16:32 2024 -0400
+
+    Cambios a inscripcion controllers para irse al array
+
+[33mcommit 16a50bc8ff334c3319dd9721ce42344ceab0ebce[m
+Author: Diegariio <diegovargasag@gmail.com>
+Date:   Tue Jul 9 00:32:27 2024 -0400
+
+    Avance de emprendedor, asistencia de emprendedor y sus productos
+
+[33mcommit 1d0ca68e9500c915a4bbb36bf74e4156ec50eb8a[m
+Author: Cristobal <cristobalalarcon22@gmail.com>
+Date:   Tue Jul 9 00:04:04 2024 -0400
+
+    Registrar asistencia de usuarios a eventos
+
+[33mcommit ae5ac338b771c248d4c36b23f3365b7f75041f00[m
+Author: Cristobal <cristobalalarcon22@gmail.com>
+Date:   Mon Jul 8 21:20:46 2024 -0400
+
+    Cambio de nombres y aplicacion de versionKey en modelo de evento
+
+[33mcommit cbe57cb3ea6807dc09084e21b5e3c1680aa99a9a[m
+Author: EstebanBra <Esteban.bravo2101@alumnos.ubiobio.cl>
+Date:   Mon Jul 8 20:27:23 2024 -0400
+
+    Se corrigio la funcion de eliminar Evento
+
+[33mcommit 4b80305123cb37ba7cea0f6d7775c9702998c373[m
+Merge: 4c8bff1 55be1db
+Author: Bastian Arriagada Quero <bastian.arriagada2201@alumnos.ubiobio.cl>
+Date:   Mon Jul 8 19:16:53 2024 -0400
+
+    Merge branch 'main' of https://github.com/Seba-IECI/Repo-Poyecto-MDD
+
+[33mcommit 4c8bff1ef144b3cf2ab75b438496d14dc17a4f78[m
+Author: Bastian Arriagada Quero <bastian.arriagada2201@alumnos.ubiobio.cl>
+Date:   Mon Jul 8 19:15:02 2024 -0400
+
+    Requisito inscripcion a un evento
+
+[33mcommit 55be1dbf50c6624ea24b0c59695437b3bef46201[m
+Author: Cristobal <cristobalalarcon22@gmail.com>
+Date:   Mon Jul 8 19:08:27 2024 -0400
+
+    Implementación de búsqueda de eventos por su nombre
+
+[33mcommit fab792bb98f2770e483d3e5a05281851e60242c4[m
+Merge: 194f62c b721e02
+Author: Bastian Arriagada Quero <bastian.arriagada2201@alumnos.ubiobio.cl>
+Date:   Mon Jul 8 06:09:17 2024 -0400
+
+    Merge branch 'main' of https://github.com/Seba-IECI/Repo-Poyecto-MDD
+
+[33mcommit 194f62ca5ed91da79337c997fe6e084cc6f9b9ee[m
+Author: Bastian Arriagada Quero <bastian.arriagada2201@alumnos.ubiobio.cl>
+Date:   Mon Jul 8 06:09:11 2024 -0400
+
+    ruta y auth actualizado
+
+[33mcommit dfaa40962eeaa190b6e4c639b3943aa573f82db6[m
+Author: Bastian Arriagada Quero <bastian.arriagada2201@alumnos.ubiobio.cl>
+Date:   Mon Jul 8 06:05:28 2024 -0400
+
+    RQ inscripcion a eventos, guarda asistencia en eventos.model
+
+[33mcommit b721e0269a9c6dafa424d8b0f7b193c1b77c913b[m
+Author: Diegariio <diegovargasag@gmail.com>
+Date:   Mon Jul 8 05:35:47 2024 -0400
+
+    Añado funcionalidades de registro de emprendedor
+
+[33mcommit b9429d969c527ed860bc77368748c4711dfc3a9a[m
+Author: EstebanBra <Esteban.bravo2101@alumnos.ubiobio.cl>
+Date:   Sun Jul 7 22:33:55 2024 -0400
+
+    Permisos de Administrador Solucionados
+
+[33mcommit a64de6be3f8b8b1cfb1d4bcc1026953a5bfa8c5d[m
+Author: Bastian Arriagada Quero <bastian.arriagada2201@alumnos.ubiobio.cl>
+Date:   Sun Jul 7 22:23:19 2024 -0400
+
+    Solucion inicios de sesion con todos los usuarios creados
+
+[33mcommit 95ad606b31e27967b1711cb04e52062d2654bf46[m
+Author: Bastian Arriagada Quero <bastian.arriagada2201@alumnos.ubiobio.cl>
+Date:   Sun Jul 7 18:42:33 2024 -0400
+
+    Se agrega base de inscripciones a eventos
+
+[33mcommit 3a0a2a75d12756df3ccb9d0cc386add9bef24f33[m
+Author: EstebanBra <Esteban.bravo2101@alumnos.ubiobio.cl>
+Date:   Sun Jul 7 17:02:10 2024 -0400
+
+    Se agregaron las validaciones para los roles user y emprendedor
+
+[33mcommit 3a5f7a5e0ad060c8d855443784447d16802cde00[m
+Author: EstebanBra <Esteban.bravo2101@alumnos.ubiobio.cl>
+Date:   Sun Jul 7 11:13:05 2024 -0400
+
+    Modificacion en los routes
+
+[33mcommit c71465919625069e5535cdda5bc56ac59bcd862c[m
+Author: EstebanBra <Esteban.bravo2101@alumnos.ubiobio.cl>
+Date:   Tue Jul 2 20:23:38 2024 -0400
+
+    Cree los archivos para los eventos, model, controller,routes. Falta conectarlo con el index.js, Aun no modifico nada ahi.
+
+[33mcommit ec138130f4faf5169b3c4b0239e06cca0e65c888[m
+Author: Sebastian Albornoz <sebastian.albornoz2201@alumnos.ubiobio.cl>
+Date:   Tue Jul 2 10:54:38 2024 -0400
+
+    Rol de emprendedor agregado
+
+[33mcommit d3627508d0748180d1592281393eff94e6d012d5[m
+Author: Seba_IECI <112773895+Seba-IECI@users.noreply.github.com>
+Date:   Wed Jun 26 22:05:58 2024 -0400
+
+    Update Integrantes
+
+[33mcommit 37840ded98ded03e59bc112b7aa69e320d1c57ae[m
+Author: Bastian Arriagada Quero <77091527+Mastrick7even@users.noreply.github.com>
+Date:   Wed Jun 26 22:00:39 2024 -0400
+
+    Update Integrantes
+
+[33mcommit b4f7dfdea1b85944daa53867be6513dd69141957[m
+Author: Bastian Arriagada Quero <77091527+M
